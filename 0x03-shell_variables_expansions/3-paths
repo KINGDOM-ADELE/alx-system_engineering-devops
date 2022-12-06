@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $PATH:/action
+echo $PATH | tr ':' '\n' | WC -1
