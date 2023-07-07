@@ -3,9 +3,27 @@ sudo apt install -y snapd
 sudo apt-get remove certbot
 sudo apt-get install certbot
 sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d example.com -d www.example.com
+
+eg2
+
+sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d myaddy.tech -d www.myaddy.tech 
+
+
 sudo ls /etc/letsencrypt/live/your_domain_name
+
+eg
+
+sudo ls /etc/letsencrypt/live/myaddy.tech
+
+
 sudo mkdir -p /etc/haproxy/certs
 DOMAIN='example.com' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+
+eg
+
+DOMAIN='myaddy.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+
+
 sudo chmod -R go-rwx /etc/haproxy/certs
 sudo nano /etc/haproxy/haproxy.cfg
 
