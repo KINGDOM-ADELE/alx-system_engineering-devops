@@ -1,3 +1,4 @@
+sudo service haproxy stop
 sudo apt update
 sudo apt install -y snapd
 sudo apt-get remove certbot
@@ -11,3 +12,8 @@ sudo nano /etc/haproxy/haproxy.cfg
 
 # for instructions
 https://certbot.eff.org/
+
+# to start, stop or check stattus of haproxy
+sudo service haproxy start
+sudo service haproxy stop
+sudo service haproxy status

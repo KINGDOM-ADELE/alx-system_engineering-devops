@@ -33,19 +33,23 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend akoatem-frontend
+# Start of parameters for myaddy.tech
+
+frontend myaddy.tech-frontend
         bind *:80
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
-        default_backend akoatem-backend
+        default_backend myaddy-backend
 
-frontend akoatem-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/akoatem.tech.pem
+frontend myaddy.tech-frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/myaddy.tech.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend akoatem-backend
+        default_backend myaddy-backend
 
-backend akoatem-backend
+backend myaddy.tech-backend
         balance roundrobin
         server 220412-web-01 54.237.118.22:80 check
-        server 220412-web-02 100.26.229.40:80 check
+        server 220412-web-02 54.162.7.81:80 check
+
+# End of parameters
