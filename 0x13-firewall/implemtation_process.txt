@@ -1,0 +1,3 @@
+To implement these port forarding read the contents in this url
+
+https://gist.github.com/kimus/9315140

@@ -3,6 +3,7 @@
 #+ except for TCP ports 22, 443 and 80.
 
 sudo apt-get -y update
+sudo apt install net-tools
 sudo apt-get install ufw
 sudo sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
 sudo ufw disable
