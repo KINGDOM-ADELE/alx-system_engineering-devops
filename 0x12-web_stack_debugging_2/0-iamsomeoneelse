@@ -2,4 +2,5 @@
 # A Bash script that runs the whoami command on the the first 
 # argument passed to it. The first command passed to the script
 # is a user registerred on the system.
-sudo -u "$1" whoami
+# sudo -u "$1" whoami
+sudo grep -wF -e "$(whoami)" "$1"
