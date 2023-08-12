@@ -15,7 +15,7 @@ eg
 
 sudo ls /etc/letsencrypt/live/myaddy.tech
 
-
+# copy the private and all public keys to certs directory
 sudo mkdir -p /etc/haproxy/certs
 DOMAIN='example.com' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
 
